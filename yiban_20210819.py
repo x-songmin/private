@@ -1,4 +1,5 @@
 # -*- coding: utf8 -*-
+#企业微信和server酱
 
 
 '''
@@ -115,10 +116,12 @@ def main():
         content = signin.start(msg[0],msg[1],msg[2],msg[3],msg[4],msg[5],msg[6])
         push = WxPush()
         push.push_main(content)
+        requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
         # requests.get('http://www.pushplus.plus/send?token=' + kutui_sckey + '&title=易班打卡成功&content=' + content + '&template=html')
     except:
         print('网络错误') # 不知道怎么处理错误
         content = '网络错误，手动登录查看' + '\n\n' + 'http://smart.hnsyu.net/xyt/home/login.do'
+        requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
         push = WxPush()
         push.push_main(content)
 
