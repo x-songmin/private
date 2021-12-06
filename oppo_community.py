@@ -1,4 +1,4 @@
-import requests,time,random,logging
+import requests,time,random,logging,time
 
 '''
 cron:  20 6 * * * oppo_community.py
@@ -113,13 +113,17 @@ for cookie in cookies[0:]:
     for i in range(1,11):
         re = requests.post(url=url,headers=headers,data=data)
         logger.info('第' + str(i) +'次')
-        print('第' + str(i) +'次')
+#         print('第' + str(i) +'次')
         i +=1
         time.sleep(random.randint(2,5))
 
     re1 = requests.post(url=url1,headers=headers1,data=data1)
     logger.info(re1.text)
-    print(re1.text)
+#     print(re1.text)
 
-    print('第' + str(n) + '个号')
+    logger.info('第' + str(n) + '个号完成' + '\n\n' + '-----------------------------------------' + '\n')
+    logger.info(time.strftime('%Y-%m-%d %X'))
     n +=1
+    
+requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + 'oppo社区完成')
+# 如何推送完整的log内容
