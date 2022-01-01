@@ -117,7 +117,7 @@ for cookie in cookies[0:]:
         logger.info('第' + str(i) +'次')
 #         print('第' + str(i) +'次')
         i +=1
-        time.sleep(random.randint(2,5))
+        time.sleep(random.randint(20,30))
 
     re1 = requests.post(url=url1,headers=headers1,data=data1)
     logger.info(re1.text)
