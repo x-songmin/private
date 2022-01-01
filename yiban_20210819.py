@@ -9,6 +9,10 @@ new Env('易班打卡');
 import requests
 import time
 import re
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
 
 kutui_sckey = '0f25fa468121492daa756d07d5af4c13'
 sckey = 'SCT1450TJ4BtzkQZuaGEGzGAhYtFmquM'
@@ -117,10 +121,12 @@ def main():
 #         push = WxPush()
 #         push.push_main(content)
         requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
+        logger.info(content)
         # requests.get('http://www.pushplus.plus/send?token=' + kutui_sckey + '&title=易班打卡成功&content=' + content + '&template=html')
     except:
         print('网络错误') # 不知道怎么处理错误
         content = '网络错误，手动登录查看' + '\n\n' + 'http://smart.hnsyu.net/xyt/home/login.do'
+        logger.info(content)
         requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
         push = WxPush()
         push.push_main(content)
