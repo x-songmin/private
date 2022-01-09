@@ -4,6 +4,11 @@ import time
 import re
 import logging
 
+'''
+cron:  50 7 * * * yiban_20210819.py
+new Env('易班打卡');
+'''
+
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
