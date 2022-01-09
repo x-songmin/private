@@ -1,11 +1,4 @@
 # -*- coding: utf8 -*-
-#企业微信/server酱/TG
-
-
-'''
-cron:  50 7 * * * yiban_20210819.py
-new Env('易班打卡');
-'''
 import requests
 import time
 import re
@@ -16,7 +9,6 @@ logger = logging.getLogger(__name__)
 
 kutui_sckey = '0f25fa468121492daa756d07d5af4c13'
 sckey = 'SCT1450TJ4BtzkQZuaGEGzGAhYtFmquM'
-g_ID = '1841601149' # 可不改
 mbr = 'XiaSongmin'
 msg = ('湖南省','怀化市','新晃侗族治自县','419200','湖南省 怀化市 新晃侗族治自县','17674534215','1841601149')
 url = 'http://smart.hnsyu.net/xyt/wx/index/loginSubmit.do'
@@ -34,10 +26,6 @@ headers1 = {
 headers2 = {
     'Referer': 'http://smart.hnsyu.net/xyt/wx/health/toApply.do',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36',}
-data = {
-    'username': g_ID,
-    'password': g_ID,}
-
 class WxPush():
     def __init__(self):
         self.corpid = 'ww7aa45d1915be80d0'  # 企业id
@@ -69,8 +57,7 @@ class WxPush():
 class SignIn():
     num = 0
     def start(self,province,city,district,adcode,add,tel,ID):
-        global g_ID
-        g_ID = ID
+        data = {'username': ID,'password': ID,}
         s = requests.Session()
         s.post(url, headers=headers, data=data)
         r1 = s.get(url1, headers=headers1)
@@ -118,11 +105,11 @@ def main():
     try:
         signin = SignIn()
         content = signin.start(msg[0],msg[1],msg[2],msg[3],msg[4],msg[5],msg[6])
-#         push = WxPush()
-#         push.push_main(content)
+        # push = WxPush()
+        # push.push_main(content)
         requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
-        logger.info(content)
         # requests.get('http://www.pushplus.plus/send?token=' + kutui_sckey + '&title=易班打卡成功&content=' + content + '&template=html')
+        logger.info(content)
     except:
         print('网络错误') # 不知道怎么处理错误
         content = '网络错误，手动登录查看' + '\n\n' + 'http://smart.hnsyu.net/xyt/home/login.do'
