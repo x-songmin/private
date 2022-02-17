@@ -8,8 +8,10 @@ new Env('oppo社区');
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
-cookies = [';token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDM1NDE2MDM2ODIsImlkIjoiNDgyMzU1MTMyIiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJUZ2FDZWVlR1hxdjFINkdFc0RmaVdjeEdiZys2R1hJNkJNdmJFbnhKZU5yTnNQVFZYMnMxZlMrZHRabmlMcGY4MHhpdzd5TitWUERTWXlPMjloY3ZVWkNrRmlPY2RkSnhVTVNCUUx4VW4zST0ifQ.MEYCIQCz53FbK6MDUPwAIG6TqGI0rkb-9HLF_F1byPyM7cKDlQIhANH3zhojE9AGf0Cbhjdq4PW1BVMCklDYiV24fNt1ofaW',';token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDM2MDAxMjU0NTksImlkIjoiNjg4Njg5MTUzIiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJRY0RsWng0L0taR0dMNm1JSnhuaDR3ZG1jUkhMM3lHWDArazk3UGpOd0VhSlhJVE1naUFGMGVlaDlmVEJqUkxaNHMrby9DMDFteDJYQjZRcGNqMXJsOHZFNk5tMzBkUEhqNmpGeWpSYmRVYz0ifQ.MEYCIQD9RFFfEzrNaVsBe1UIpbwyCwizDFHhKfTdHhzbmcz_MAIhAJrFyWHdM3YjgOXyjUgAZgzI8Fs8jZv_Xt4pSDQ7XP_p',';token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDM2MDA2NTkxMjgsImlkIjoiNjcwODE4MTQxIiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJNVkE2b2FJNS83OGluS3FCb2c2VGd3ZG1jUkhMM3lHWDArazk3UGpOd0VhSlhJVE1naUFGMGVlaDlmVEJqUkxaVHArTmRhNTNTd3ZhaHF1aGViYld6b1lrM0RWbTJERElFcHljUmlaaDZTVT0ifQ.MEQCIAHgwjVVAd_FcIcEHJqGBTKa0dOWgNMbr6Bxt47jIWSFAiAGTfurBL0WPZtc63lraaSoMGXw5kCRkcQ4KF3VDcArcA',';token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDI5MjU0ODEyOTIsImlkIjoiMTAxNDcyMTM2IiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiIrK2ZRWWw5RTBveTdyanorMlJQVDdRZG1jUkhMM3lHWDArazk3UGpOd0VhSlhJVE1naUFGMGVlaDlmVEJqUkxaaisySWd4UE1GN3o3ZWpvYnZ1U3V4TUFwWmYrTnBueTl1dDA5Ri8wQXZoTT0ifQ.MEQCIFaNpX8UDmpFwaC-vN35wQytGSp1Jij_7A8FyrtIihnSAiACUqlTvOwq0ije8xPloF0MhSoe1ZdOBXUWaE8-cPocvQ',';token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDM2MDEyMDg3NzcsImlkIjoiNDg5OTA3NzA1IiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJGdlNvTTYzVDJHNGhVSVRURDkyN25BZG1jUkhMM3lHWDArazk3UGpOd0VhSlhJVE1naUFGMGVlaDlmVEJqUkxaSGkyY2dhZjA3MXBBUVdxem5VTk9WNHY5OHYySDdLS3EyUnE2L0VQeUo4az0ifQ.MEUCIQCILG05_xkgvJk6XAmFIWtQ4tbY4C8TG9p2jTq9cBJBKQIgJDJ0EO5PLFlNpL029sE3qkaV9aY9X3gAUpiM7NP7VBs']
-
+cookies = [
+ 'token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDc1NDY1MzIzOTEsImlkIjoiNDgyMzU1MTMyIiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJUZ2FDZWVlR1hxdjFINkdFc0RmaVdjeEdiZys2R1hJNkJNdmJFbnhKZU5yTnNQVFZYMnMxZlMrZHRabmlMcGY4QU8zTHlNR0JjaFZqT09ra013ZndWcWpHMWpOcWZQV0RvMkdabDhJUTJ4TT0ifQ.MEYCIQD7tNVAzd-drG--iWeFOkbUjUyxH_ICn22xu1coesAzvQIhAOHtyAiBe5akMVuWE6Dwxm__UL8-n2x4JBKYir8fKO6H'
+]
+           
 # # 任务提交
 # url = 'https://i-api.oppo.cn/java/task/api/browse/browseFinish'
 # headers = {
@@ -31,7 +33,7 @@ cookies = [';token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDM1NDE2MDM
 #         '_sign':'8af564588a935ce6c31227049818eb6f56a58f89',
 # }
 
-# for i in range(1,11):
+# for i in range(1,6):
 #     re = requests.post(url=url,headers=headers,data=data)
 #     logger.infot('第' + str(i) +'次')
 #     print('第' + str(i) +'次')
@@ -112,7 +114,7 @@ for cookie in cookies[0:]:
     data1 = {'idList':'520'}
     url1 = "https://www.oppo.cn/java/task/api/browse/awardBrowseTask"
 
-    for i in range(1,11):
+    for i in range(1,6):
         re = requests.post(url=url,headers=headers,data=data)
         logger.info('第' + str(i) +'次')
 #         print('第' + str(i) +'次')
