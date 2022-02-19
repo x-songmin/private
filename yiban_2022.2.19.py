@@ -6,7 +6,7 @@ import logging
 import random
 '''
 cron:  50 7 * * * yiban_20210819.py
-new Env('易班打卡');
+new Env('xsm_易班打卡');
 '''
 #日志输出
 logging.basicConfig(level=logging.INFO, format='%(message)s')
