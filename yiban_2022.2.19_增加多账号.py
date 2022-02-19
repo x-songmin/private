@@ -130,7 +130,7 @@ def main():
             sleep = random.randint(5,11)
             print('暂停' + str(sleep) + '秒')
             time.sleep(sleep)
-            content = content + '\n' + '第' + str(num) + '个账号完成' + str(msg[6])
+            content = content + '\n' + '第' + str(num) + '个账号完成' + str(msg[6] + '\n' + '==========================================================' + '\n')
             # push = WxPush()
             # push.push_main(content)
             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
