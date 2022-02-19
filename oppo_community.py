@@ -115,7 +115,7 @@ for cookie in cookies[0:]:
     data1 = {'idList':'520'}
     url1 = "https://www.oppo.cn/java/task/api/browse/awardBrowseTask"
 
-    for i in range(1,11):
+    for i in range(1,6):
         re = requests.post(url=url,headers=headers,data=data)
         logger.info('第' + str(i) +'次')
 #         print('第' + str(i) +'次')
