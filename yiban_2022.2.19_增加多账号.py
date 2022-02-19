@@ -126,24 +126,25 @@ def main():
             signin = SignIn()
             num +=1
             content = signin.start(msg[0],msg[1],msg[2],msg[3],msg[4],msg[5],msg[6])
+            logger.info(content)
             sleep = random.randint(5,11)
             print('暂停' + str(sleep) + '秒')
             time.sleep(sleep)
+            content = content + '\n' + '第' + str(num) + '个账号完成' + str(msg[6])
             # push = WxPush()
             # push.push_main(content)
-            # requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
+            requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
             # requests.get('http://www.pushplus.plus/send?token=' + kutui_sckey + '&title=易班打卡成功&content=' + content + '&template=html')
-            logger.info(content)
-            logger.info('第' + str(num) + '个账号完成' + str(msg[6]))
-            print('第' + str(num) + '个账号完成' + str(msg[6]) + '\n\n' + '==========================================================')
+            logger.info('第' + str(num) + '个账号完成' + str(msg[6]) + '\n\n' + '==========================================================')
+            # print('第' + str(num) + '个账号完成' + str(msg[6]) + '\n\n' + '==========================================================')
         except:
             print('网络错误') # 不知道怎么处理错误
             news = '第' + str(num) + '个账号错误' + str(msg[6])
             content = '网络错误，手动登录查看:' + news + '\n\n' + 'http://smart.hnsyu.net/xyt/home/login.do'
             logger.info(content)
             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
-            # push = WxPush()
-            # push.push_main(content)
+            push = WxPush()
+            push.push_main(content)
 
 def main_handler(event, context):
     main()
