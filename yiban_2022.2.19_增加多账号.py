@@ -3,19 +3,25 @@ import requests
 import time
 import re
 import logging
-
+import random
 '''
 cron:  50 7 * * * yiban_20210819.py
 new Env('易班打卡');
 '''
-
+#日志输出
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
-
+#推送参数
 kutui_sckey = '0f25fa468121492daa756d07d5af4c13'
 sckey = 'SCT1450TJ4BtzkQZuaGEGzGAhYtFmquM'
 mbr = 'XiaSongmin'
-msg = ('湖南省','怀化市','新晃侗族治自县','419200','湖南省 怀化市 新晃侗族治自县','17674534215','1841601149')
+# 打卡个人数据
+# eg：['省','市','县','邮编','省 市 县（空格隔开）','电话号码','学号']
+msgs = (
+    ['湖南省','怀化市','新晃侗族治自县','419200','湖南省 怀化市 新晃侗族治自县','17674534215','1841601149'],
+    # ['湖南省','邵阳市','武冈县','422400','湖南省 邵阳市 武冈县','17673936070','1841601144']
+)
+#请求数据
 url = 'http://smart.hnsyu.net/xyt/wx/index/loginSubmit.do'
 url1 = 'http://smart.hnsyu.net/xyt/wx/health/toApply.do'
 url2 = 'http://smart.hnsyu.net/xyt/wx/health/saveApply.do'
@@ -28,9 +34,12 @@ headers1 = {
     'Host': 'smart.hnsyu.net',
     'Referer': 'http://smart.hnsyu.net/xyt/wx/health/toApply.do',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36',}
+# 突然发现headers1和2一样的
 headers2 = {
     'Referer': 'http://smart.hnsyu.net/xyt/wx/health/toApply.do',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36',}
+
+# 企业微信推送
 class WxPush():
     def __init__(self):
         self.corpid = 'ww7aa45d1915be80d0'  # 企业id
@@ -58,9 +67,9 @@ class WxPush():
             "duplicate_check_interval": 1800
         }
         r1 = requests.post(url=url, json=json)
-
+# 主程序
 class SignIn():
-    num = 0
+    num = 0 # 忘记之前用来干啥的了
     def start(self,province,city,district,adcode,add,tel,ID):
         data = {'username': ID,'password': ID,}
         s = requests.Session()
@@ -98,30 +107,43 @@ class SignIn():
             }
             r_sign = s.post(url2, headers=headers2, data=data1)
             content = eval(r_sign.text)['msgText'] + eval(r_sign.text)['msgStatus'] + '\n\n' + time.strftime('%Y-%m-%d %X')
+            s.get(url='http://smart.hnsyu.net/xyt/wx/index/logout.do',headers=headers2) # 退出登录
             return content
         else:
             r3 = s.get(url3)
             inform_a = (re.compile(r'(?<=<span class="normal-sm-tip green-warn fn-ml10">).+(?=</span>)').findall(r3.text))[0]
             inform_b = (re.compile(r'(?<=<div class="weui-cell__bd normal-font fn-ar fc-gray2">).{10}(?=</div>)').findall(r1.text))[0]
             content = inform_a + '\n\n' + '上报时间：' + inform_b
+            s.get(url='http://smart.hnsyu.net/xyt/wx/index/logout.do',headers=headers2)
             return content
+        
 
+# 运行
 def main():
-    try:
-        signin = SignIn()
-        content = signin.start(msg[0],msg[1],msg[2],msg[3],msg[4],msg[5],msg[6])
-        # push = WxPush()
-        # push.push_main(content)
-        requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
-        # requests.get('http://www.pushplus.plus/send?token=' + kutui_sckey + '&title=易班打卡成功&content=' + content + '&template=html')
-        logger.info(content)
-    except:
-        print('网络错误') # 不知道怎么处理错误
-        content = '网络错误，手动登录查看' + '\n\n' + 'http://smart.hnsyu.net/xyt/home/login.do'
-        logger.info(content)
-        requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
-        push = WxPush()
-        push.push_main(content)
+    num = 0
+    for msg in msgs[0:] :
+        try:
+            signin = SignIn()
+            num +=1
+            content = signin.start(msg[0],msg[1],msg[2],msg[3],msg[4],msg[5],msg[6])
+            sleep = random.randint(5,11)
+            print('暂停' + str(sleep) + '秒')
+            time.sleep(sleep)
+            # push = WxPush()
+            # push.push_main(content)
+            # requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
+            # requests.get('http://www.pushplus.plus/send?token=' + kutui_sckey + '&title=易班打卡成功&content=' + content + '&template=html')
+            logger.info(content)
+            logger.info('第' + str(num) + '个账号完成' + str(msg[6]))
+            print('第' + str(num) + '个账号完成' + str(msg[6]) + '\n\n' + '==========================================================')
+        except:
+            print('网络错误') # 不知道怎么处理错误
+            news = '第' + str(num) + '个账号错误' + str(msg[6])
+            content = '网络错误，手动登录查看:' + news + '\n\n' + 'http://smart.hnsyu.net/xyt/home/login.do'
+            logger.info(content)
+            requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
+            # push = WxPush()
+            # push.push_main(content)
 
 def main_handler(event, context):
     main()
