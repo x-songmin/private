@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
 cookies = [
-    'TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NDc3MzA4MDc5MTQsImlkIjoiNDgyMzU1MTMyIiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJUZ2FDZWVlR1hxdjFINkdFc0RmaVdjeEdiZys2R1hJNkJNdmJFbnhKZU5yTnNQVFZYMnMxZlMrZHRabmlMcGY4TCtnSG5pYWpjTURFRUdXV0tIVW0yOU1zOVlUelZjdm40b0ZtWU53UTRyZz0ifQ.MEQCIGHkRbdL-CrtJyq8M6QS5osfJav9LcVRd-bzphySI-fhAiBfWeXAS3Sts-bCKN9vag9cGXG55AtoVIv1qYzgUw-rsQ;',
+    'token=TOKEN_eyJhbGciOiJFQ0RTQSIsInYiOiIxIn0.eyJleHAiOjE2NTE1NjE1MjgzMjcsImlkIjoiNDgyMzU1MTMyIiwiaWRjIjoic2hvdW1pbmciLCJ0aWQiOiJUZ2FDZWVlR1hxdjFINkdFc0RmaVdjeEdiZys2R1hJNkJNdmJFbnhKZU5yTnNQVFZYMnMxZlMrZHRabmlMcGY4RmtRZTFMSzZVOXdDZjdGY2JDaDBKV1BnWmNpcU84b3VaRTYzQlVxMGhoST0ifQ.MEUCIQCM9SM7GaieFMUbRgMh1aUMqNKmJmH0ICY2LhJ5DoIF5gIgSMEzqYBcxKkyYA1BiF_dIai9GJpSg0-oEsBmI3zcL1o;',
 ]
 
 # # 任务提交
@@ -110,12 +110,12 @@ for cookie in cookies[0:]:
     'Accept-Encoding' : 'gzip, deflate',
     'Accept-Language' : 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
     # 'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1; _gid=GA1.2.2107911929.1638257519' +  cookie + '; _gat_gtag_UA_29338249_8=1',
-    'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1; token=' + cookie + ' _gid=GA1.2.1758173783.1645263866; _gat_gtag_UA_29338249_8=1',
+    'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1; token=' + cookies + ' _gid=GA1.2.1758173783.1645263866; _gat_gtag_UA_29338249_8=1',
     }
     data1 = {'idList':'520'}
     url1 = "https://www.oppo.cn/java/task/api/browse/awardBrowseTask"
 
-    for i in range(1,6):
+    for i in range(1,11):
         re = requests.post(url=url,headers=headers,data=data)
         logger.info('第' + str(i) +'次')
 #         print('第' + str(i) +'次')
@@ -134,4 +134,4 @@ for cookie in cookies[0:]:
     n +=1
     
 requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + 'oppo社区完成')
-# 如何推送完整的log内容
+
