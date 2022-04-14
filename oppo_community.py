@@ -110,7 +110,7 @@ for cookie in cookies[0:]:
     'Accept-Encoding' : 'gzip, deflate',
     'Accept-Language' : 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
     # 'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1; _gid=GA1.2.2107911929.1638257519' +  cookie + '; _gat_gtag_UA_29338249_8=1',
-    'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1; token=' + cookies + ' _gid=GA1.2.1758173783.1645263866; _gat_gtag_UA_29338249_8=1',
+    'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1;' + cookies + ' _gid=GA1.2.1758173783.1645263866; _gat_gtag_UA_29338249_8=1',
     }
     data1 = {'idList':'520'}
     url1 = "https://www.oppo.cn/java/task/api/browse/awardBrowseTask"
