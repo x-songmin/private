@@ -82,6 +82,6 @@ logger.info(token)
 url1 = 'http://syxyyqfk.hnsyu.net/content/student/temp/zzdk?_t_s_=' + token
 r1 = s.post(url=url1,headers=headers,data=data1)
 
-print = r1.text
+print = (r1.text)
 logger.info(r1.text)
 requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + r1.text)
