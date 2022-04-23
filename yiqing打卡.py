@@ -9,6 +9,9 @@ new Env('xsm_疫情打卡');
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
+# data时间参数
+time = time.strftime('%Y-%m-%d')
+
 # 登录
 url = 'http://syxyyqfk.hnsyu.net/website/login'
 headers = {
@@ -46,11 +49,11 @@ data1 = {
 'tw13' : '',
 'yczk.dm' : '01',
 'yczk1' : '无症状',
-'fbrq' : '2022-04-23',
+'fbrq' : time,
 'jzInd' : '0',
 'jzYy' : '',
 'zdjg' : '',
-'fxrq' : '2022-04-23',
+'fxrq' : time,
 'brStzk.dm' : '01',
 'brStzk1' : '身体健康、无异常',
 'brJccry.dm' : '01',
