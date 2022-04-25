@@ -75,7 +75,7 @@ n = 1
 for cookie in cookies[0:]:
     url = 'https://i-api.oppo.cn/java/task/api/browse/browseFinish'
     headers = {
-        'cookie': cookie,
+        'cookie': cookies,
         'globalRequest': 'eyJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJ1YSI6Im9wcG9jb21tdW5pdHkiLCJtb2RhbCI6IkdNMTkxMCIsInVzZV9za2luIjoiZmFsc2UiLCJzY3JlZW5fc2l6ZSI6IjE0NDB4MzEyMCIsIm9zIjoiMTEiLCJjb2xvcl9vcyI6IjAiLCJzX3ZlcnNpb24iOiI4MTIwMiIsImltZWkiOiJYMSt4OGNmelJCRHg1U1Vxd2E2Nkx5VnV5Qk1sNjhGS0xNZTlSV1FpSzFRPSIsIm5ldHdvcmt0eXBlIjoid2lmaSIsInZhaWQiOiI1NjBEQTVEOTYwMEE0RTM0OTgzRjVGOEY0OERGRjRFMEVDN0Q0MjQ5NzlDQzlDNTEyOThEQkU5NzE0N0IzNUQwIiwib2FpZCI6IkExQUM1NjExNzhEREQ4NkY0MzAwM0MzQzQ5RjBDOTBCNkIwMjc1MzdCRkQyRjVBQjgyMDMwNzE2NDNCNDI1OTQiLCJ1ZGlkIjoiIiwiYWFpZCI6IiIsInV1aWQiOiJhMzU5OWI4Yy05OGJjLTQ2MTEtODhhOS0zMzlkMTZiYzM0YTIiLCJjb2xvcl9vc19uYW1lIjoibnVsbCJ9',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': '76',
