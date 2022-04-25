@@ -75,7 +75,7 @@ n = 1
 for cookie in cookies[0:]:
     url = 'https://i-api.oppo.cn/java/task/api/browse/browseFinish'
     headers = {
-        'cookie': cookies,
+        'cookie': cookie,
         'globalRequest': 'eyJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJ1YSI6Im9wcG9jb21tdW5pdHkiLCJtb2RhbCI6IkdNMTkxMCIsInVzZV9za2luIjoiZmFsc2UiLCJzY3JlZW5fc2l6ZSI6IjE0NDB4MzEyMCIsIm9zIjoiMTEiLCJjb2xvcl9vcyI6IjAiLCJzX3ZlcnNpb24iOiI4MTIwMiIsImltZWkiOiJYMSt4OGNmelJCRHg1U1Vxd2E2Nkx5VnV5Qk1sNjhGS0xNZTlSV1FpSzFRPSIsIm5ldHdvcmt0eXBlIjoid2lmaSIsInZhaWQiOiI1NjBEQTVEOTYwMEE0RTM0OTgzRjVGOEY0OERGRjRFMEVDN0Q0MjQ5NzlDQzlDNTEyOThEQkU5NzE0N0IzNUQwIiwib2FpZCI6IkExQUM1NjExNzhEREQ4NkY0MzAwM0MzQzQ5RjBDOTBCNkIwMjc1MzdCRkQyRjVBQjgyMDMwNzE2NDNCNDI1OTQiLCJ1ZGlkIjoiIiwiYWFpZCI6IiIsInV1aWQiOiJhMzU5OWI4Yy05OGJjLTQ2MTEtODhhOS0zMzlkMTZiYzM0YTIiLCJjb2xvcl9vc19uYW1lIjoibnVsbCJ9',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': '76',
@@ -110,7 +110,7 @@ for cookie in cookies[0:]:
     'Accept-Encoding' : 'gzip, deflate',
     'Accept-Language' : 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
     # 'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1; _gid=GA1.2.2107911929.1638257519' +  cookie + '; _gat_gtag_UA_29338249_8=1',
-    'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1;' + cookies + ' _gid=GA1.2.1758173783.1645263866; _gat_gtag_UA_29338249_8=1',
+    'Cookie' : '_ga=GA1.2.284397977.1633261411; dcs-uuid=1719e230-2525-440b-8536-9918ba4711e1;' + cookie + ' _gid=GA1.2.1758173783.1645263866; _gat_gtag_UA_29338249_8=1',
     }
     data1 = {'idList':'520'}
     url1 = "https://www.oppo.cn/java/task/api/browse/awardBrowseTask"
