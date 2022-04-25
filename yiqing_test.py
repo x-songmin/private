@@ -23,7 +23,6 @@ msgs = (
 class SignIn:
     def __init__(self,uname,pd_mm,lxdh) :
         self.uname = uname
-
         self.url = 'http://syxyyqfk.hnsyu.net/website/login'
         self.url1 = 'http://syxyyqfk.hnsyu.net/content/student/temp/zzdk?_t_s_='
         self.url2='http://syxyyqfk.hnsyu.net/website/logout'
