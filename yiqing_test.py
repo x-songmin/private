@@ -1,4 +1,10 @@
 import requests,time,re,logging,random
+
+'''
+cron:  30 7 * * *
+new Env('xsm_疫情打卡');
+'''
+
 # 日志输出
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
