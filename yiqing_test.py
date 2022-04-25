@@ -1,8 +1,9 @@
+from tkinter import N
 import requests,time,re,logging,random
 
 '''
 cron:  30 6 * * *
-new Env('xsm_疫情打卡测试');
+new Env('xsm_疫情打卡');
 '''
 
 #日志输出
@@ -95,13 +96,18 @@ class SignIn():
         url1 = 'http://syxyyqfk.hnsyu.net/content/student/temp/zzdk?_t_s_=' + token
         r1 = s.post(url=url1,headers=headers,data=data1)
 
-        print(r1.text + uname + '\n' + '---------------')
-        # logger.info(r1.text)
+        content= r1.text + '\n' + '账号： ' + uname + '\n' + '-------------------'
+        logger.info(content)
         # requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + r1.text)
         s.post(url='http://syxyyqfk.hnsyu.net/website/logout',headers=headers)
+        return content
 
+num = 0
 for msg in msgs[0:] :
     signin = SignIn()
-    signin.start(msg[0],msg[1],msg[2])
+    content = signin.start(msg[0],msg[1],msg[2])
+    num += 1
     sleep = random.randint(5,11)
+    if num == 1:
+        requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
 
