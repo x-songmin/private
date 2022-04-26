@@ -43,7 +43,7 @@ class SignIn:
                 'jzdShi.dm' : '430500',
                 'jzdXian.dm' : '430503',
                 'jzdDz' : '邵阳学院西湖校区',
-                'jzdDz2' : '1#305',
+                'jzdDz2' : '邵阳学院西湖校区',
                 'lxdh' : lxdh,
                 'sfzx' : '1',
                 'sfzx1' : '在校',
@@ -103,7 +103,7 @@ def run():
         signin = SignIn(msg[0],msg[1],msg[2])
         content = signin.main()
         num += 1
-        sleep = random.randint(8,16)
+        sleep = random.randint(10,16)
         if num == 1:
             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
 
