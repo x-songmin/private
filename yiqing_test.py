@@ -93,7 +93,7 @@ def run():
         content = signin.main()
         num += 1
         sleep = random.randint(8,16)
-        logger.info('随机暂停' + sleep + '秒')
+        logger.info('随机暂停' + str(sleep) + '秒')
         time.sleep(sleep)
         if num == 1:
             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
