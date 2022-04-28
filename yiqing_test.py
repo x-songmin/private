@@ -1,4 +1,3 @@
-from tkinter import S
 import requests,time,re,logging,random
 # 账号数据
 from account import accounts
