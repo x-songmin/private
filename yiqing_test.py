@@ -1,25 +1,13 @@
 import requests,time,re,logging,random
-
-'''
-cron:  30 7 * * *
-new Env('xsm_疫情打卡');
-'''
-
+# 账号数据
+from account import accounts
+msgs = accounts
 # 日志输出
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 # data时间参数
 time = time.strftime('%Y-%m-%d')
-# 账号数据
-msgs = (
-    ['1841601149','9b28aa558cb112969fc62a18d08f143a','17674534215'],
-    ['1841601143','19830a9035b408c82a626c10db060c26','18573620025'],
-    ['1841601116','6ecbea51bcb83c31176edbc426f34f80','18707395377'],
-    ['1841601125','2acaaa04abb5ed1d32e975779b9f8f91','17761149807'],
-    ['1841601117','ac2dba197eb6b38c61caa84143b3eda0','15115986876'],
-    ['1841601133','fab28aead6b3c8349023bd8fbefda54e','13562943296'],
-    ['1841601144','7b2eaa329ab6b3f2db6ff86077045c72','15526033359'],
-)
+# 有时间把data也分出去
 
 class SignIn:
     def __init__(self,uname,pd_mm,lxdh) :
@@ -44,7 +32,7 @@ class SignIn:
                 'jzdShi.dm' : '430500',
                 'jzdXian.dm' : '430503',
                 'jzdDz' : '邵阳学院西湖校区',
-                'jzdDz2' : '邵阳学院西湖校区',
+                'jzdDz2' : '1#305',
                 'lxdh' : lxdh,
                 'sfzx' : '1',
                 'sfzx1' : '在校',
@@ -104,9 +92,14 @@ def run():
         signin = SignIn(msg[0],msg[1],msg[2])
         content = signin.main()
         num += 1
-        sleep = random.randint(10,16)
+        sleep = random.randint(8,16)
+        logger.info('随机暂停' + sleep + '秒')
+        time.sleep(sleep)
         if num == 1:
             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
 
+#! 有时间理解一下云函数的运行
+# def main_handler(event, context):
+#     main()
 if __name__=="__main__":
     run()
