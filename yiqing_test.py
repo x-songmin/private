@@ -1,3 +1,4 @@
+from tkinter import S
 import requests,time,re,logging,random
 # 账号数据
 from account import accounts
@@ -6,8 +7,8 @@ msgs = accounts
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 # data时间参数
-time = time.strftime('%Y-%m-%d')
-# 有时间把data也分出去
+times = time.strftime('%Y-%m-%d')
+# 有时间可以把data也分出去
 
 class SignIn:
     def __init__(self,uname,pd_mm,lxdh) :
@@ -46,11 +47,11 @@ class SignIn:
                 'tw13' : '',
                 'yczk.dm' : '01',
                 'yczk1' : '无症状',
-                'fbrq' : time,
+                'fbrq' : times,
                 'jzInd' : '0',
                 'jzYy' : '',
                 'zdjg' : '',
-                'fxrq' : time,
+                'fxrq' : times,
                 'brStzk.dm' : '01',
                 'brStzk1' : '身体健康、无异常',
                 'brJccry.dm' : '01',
@@ -92,14 +93,12 @@ def run():
         signin = SignIn(msg[0],msg[1],msg[2])
         content = signin.main()
         num += 1
-#         sleep = random.randint(8,16)
-#         logger.info('随机暂停' + str(sleep) + '秒')
-        time.sleep(12)
+        sleep = random.randint(8,16)
+        logger.info('随机暂停' + str(sleep) + '秒')
+        time.sleep(sleep)
         if num == 1:
             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
 
-#! 有时间理解一下云函数的运行
-# def main_handler(event, context):
-#     main()
+
 if __name__=="__main__":
     run()
