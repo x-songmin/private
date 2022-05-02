@@ -32,7 +32,7 @@ class SignIn:
                 'jzdShi.dm' : '430500',
                 'jzdXian.dm' : '430503',
                 'jzdDz' : '邵阳学院西湖校区',
-                'jzdDz2' : '1#305',
+                'jzdDz2' : '邵阳学院西湖校区',
                 'lxdh' : lxdh,
                 'sfzx' : '1',
                 'sfzx1' : '在校',
