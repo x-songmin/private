@@ -1,4 +1,8 @@
 import requests,time,re,logging,random
+'''
+cron:  30 7 * * *
+new Env('xsm_疫情打卡_测试');
+'''
 # 账号数据
 from account import accounts
 msgs = accounts
