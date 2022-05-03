@@ -5,7 +5,7 @@ import re
 import logging
 import random
 '''
-cron:  50 7 * * *
+cron:  20 7 * * *
 new Env('xsm_易班打卡');
 '''
 #日志输出
