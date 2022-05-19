@@ -2,7 +2,7 @@ import requests,time,random,logging,time
 
 '''
 cron:  20 6 * * * oppo_community.py
-new Env('xsm_oppo社区');
+new Env('xsm_op社区');
 '''
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
