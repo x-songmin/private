@@ -1,4 +1,5 @@
 import requests,time,re,logging,random
+from wxpush import WxPush
 '''
 cron:  30 7 * * *
 new Env('xsm_疫情打卡_测试');
@@ -100,7 +101,9 @@ def run():
         logger.info('随机暂停' + str(sleep) + '秒')
         time.sleep(sleep)
         if num == 1:
-            requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
+            push = WxPush()
+            push.push_main(content)
+#             requests.get('https://telechan-mu.vercel.app/api/send?sendkey=629979069Tec01f1a418f8781346788d6f468499ec&text=' + content)
 
 
 if __name__=="__main__":
