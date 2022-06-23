@@ -1,5 +1,10 @@
 import requests
 
+'''
+cron:  11 11 * * *
+new Env('xsm_消息推送');
+'''
+
 class WxPush():
     def __init__(self):
         self.corpid = 'ww7aa45d1915be80d0'  # 企业id
@@ -29,9 +34,10 @@ class WxPush():
         requests.post(url=url, json=json)
 
 
-
+import os
+content = os.getenv('content')
 
 if __name__=="__main__":
-    content = input("输入推送文本：")
+#     content = input("输入推送文本：")
     push = WxPush()
     push.push_main(content)
