@@ -1,9 +1,9 @@
-import requests
+import requests,os,logging
 
-'''
-cron:  11 11 * * *
-new Env('xsm_消息推送');
-'''
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
+
+content = os.getenv('content')
 
 class WxPush():
     def __init__(self):
@@ -31,13 +31,11 @@ class WxPush():
             "enable_duplicate_check": 0,
             "duplicate_check_interval": 1800
         }
-        requests.post(url=url, json=json)
+        logger.info(requests.post(url=url, json=json))
 
 
-import os
-content = os.getenv('content')
 
 if __name__=="__main__":
-#     content = input("输入推送文本：")
+    # content = input("输入推送文本：")
     push = WxPush()
     push.push_main(content)
