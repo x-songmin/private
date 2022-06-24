@@ -3,7 +3,9 @@ import requests
 cron:  20 8 * * *
 new Env('xsm_全民K歌');
 '''
-
+import logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
 sckey = 'SCU109954T1eec53fd29a2455979eb5183afe09ba35f3cc08d82b94'
 Cookie = 'pgv_pvid=8296311808; userlevel=14; qrsig=F5E2DCADCFA60A4034B20D6B64E7D67D; muid=649a9a8c252e358c; openid=D607B17C0C6CCE63EA251711CE934ED0; openkey=JxEACl89FIEAD0LwAAAAION5n3oMp7Y7qxV1uUXD4/OnSTLGVzoWb2OFA/7GU0NV; opentype=0; uid=67790327'
 
@@ -59,7 +61,7 @@ def run():
     except:
         num = 'Cookie效验失败'
     requests.get('https://sc.ftqq.com/' + sckey + '.send?text=全民K歌签到通知&desp=' + num)
-    print(num)
+    logger.info(num)
 
 
 def main_handler(event, context):
