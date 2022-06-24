@@ -9,7 +9,9 @@ import datetime
 import re
 import random
 from io import StringIO
-
+import logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
 '''
 cron:  30 2 * * *
 new Env('xsm_wps签到');
@@ -278,7 +280,7 @@ def main():
         digest = digest.replace('\n\n', '\n')
         push = WXPusher(pushusr, digest, desp)
         push.send_message()
-    print(desp)
+    logger.info(desp)
     return desp
 
 
