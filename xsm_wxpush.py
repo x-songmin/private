@@ -3,7 +3,11 @@ import requests,os,logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
-content = os.getenv('content')
+Env = os.getenv('content')
+if Env != None:
+    content = Env.split('@')
+else:
+    logger.info('未找到env')
 
 class WxPush():
     def __init__(self):
