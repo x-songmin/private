@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 sckey = 'SCU109954T1eec53fd29a2455979eb5183afe09ba35f3cc08d82b94'
-Cookie = 'pgv_pvid=8296311808; userlevel=14; qrsig=F5E2DCADCFA60A4034B20D6B64E7D67D; muid=649a9a8c252e358c; openid=D607B17C0C6CCE63EA251711CE934ED0; openkey=JxEACl89FIEAD0LwAAAAION5n3oMp7Y7qxV1uUXD4/OnSTLGVzoWb2OFA/7GU0NV; opentype=0; uid=67790327'
+Cookie = 'RK=517ARxBaaD; ptcz=1870cd76e10ef04a1f6a202d55fcffc271c4f19164b4b5652ee58038342cd596; pgv_pvid=872469855; eas_sid=C1y6l2X7K1j0X0a7F3I9w9P2N5; _ga=GA1.2.334192518.1627377280; fqm_pvqid=980b3eec-15a2-40ac-a574-deb48b17b805; userlevel=15; uin=o1509388587; skey=@VVCAQTNQH; qrsig=4EC897EC9E9A733E5AA829D207B39AB5; muid=649a9a8c252e358c; openid=D607B17C0C6CCE63EA251711CE934ED0; openkey=JxEACmJkpBAAD0LwAAAAICw8KxWiwGdfoa9+DJP/5TkEjNbahI8ZqwIErONCvbY9; opentype=0; uid=67790327'
 
 uid = Cookie.split("; ")
 t_uUid = ''
@@ -64,7 +64,7 @@ def run():
     logger.info(num)
 
 
-def main_handler(event, context):
+if __name__=="__main__":
     run()
 
 
