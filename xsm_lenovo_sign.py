@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import requests
-import re
-import base64
-import toml
+import requests,re,base64,toml,logging,os
+
 '''
 cron:  20 1 * * *
 new Env('xsm_联想sign');
 '''
-import logging
+
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
+
+Env = os.getenv('lenovo')
+if Env != None:
+    msg = Env.split('@')
+else:
+    logger.info('未找到env')
 
 def sign(username, password):
     session = requests.Session()
@@ -49,12 +53,14 @@ def sign(username, password):
     session.close()
 
 
+# def main():
+#     account = toml.load("config.toml").get("ACCOUNT")
+#     if not account:
+#         return
+#     for username, password in account.items():
+#         sign(username, password)
 def main():
-    account = toml.load("config.toml").get("ACCOUNT")
-    if not account:
-        return
-    for username, password in account.items():
-        sign(username, password)
+    sign(msg[0], msg[1])
 
 
 if __name__ == "__main__":
