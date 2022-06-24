@@ -1,13 +1,12 @@
 import requests,os,logging
-
+'''
+cron:  10 10 * * *
+new Env('xsm_提醒服务');
+'''
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
-Env = os.getenv('content')
-if Env != None:
-    content = Env.split('@')
-else:
-    logger.info('未找到env')
+content = os.getenv('content')
 
 class WxPush():
     def __init__(self):
