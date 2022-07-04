@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import requests,re,base64,toml,logging,os
+import requests,re,base64,toml,logging,os,random
 
 '''
 cron:  20 1 * * *
@@ -60,6 +60,8 @@ def sign(username, password):
 #     for username, password in account.items():
 #         sign(username, password)
 def main():
+    sign(msg[0], msg[1])
+    random.randint(2,8)
     sign(msg[0], msg[1])
 
 
