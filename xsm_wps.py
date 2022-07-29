@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 cron:  30 2 * * *
 new Env('xsm_wps签到');
 '''
-
+#ceshi
 # Python版本 3.6, 该脚本仅供分享交流和学习, 不允许用于任何非法途径, 否则后果自负, 作者对此不承担任何责任
 # 20210812魔改，仅保留网页签到功能，精简消息
 # 20210124更新: 添加WPS小程序会员群集结功能 (如需仅执行群集结功能, 请将执行方法由'index.main_handler'更改为'index.wps_massing' ); 添加并优化企业微信推送功能; 优化推送逻辑
