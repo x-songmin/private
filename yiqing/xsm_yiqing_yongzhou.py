@@ -57,7 +57,7 @@ class SignIn:
                 'jzdDz2' : '湖南省永州市中心医院',
                 'lxdh' : self.lxdh,
                 'sfzx' : '1',
-                'sfzx1' : '在校',
+                'sfzx1' : '不在校',
                 'twM.dm' : '01',
                 'tw1' : '[35.0~37.2]正常',
                 'tw1M.dm' : '',
@@ -89,7 +89,7 @@ class SignIn:
                 'xgym1' : '',
                 'hsjc' : '',
                 'hsjc1' : '',
-                'bz' : '',
+                'bz' : '实习',
                 'operationType' : 'Create',
                 'dm' : '',
         }
@@ -102,7 +102,7 @@ class SignIn:
 
 def run():
     num = 0
-    for msg in msgs[2:]:
+    for msg in msgs[0:]:
         signin = SignIn(msg[0],msg[1],msg[2])
         content = signin.main()
         num += 1
