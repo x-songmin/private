@@ -62,7 +62,7 @@ def sign(username, password):
 def main():
     sign(msg[0], msg[1])
     random.randint(2,8)
-    sign(msg[0], msg[1])
+    sign(msg[2], msg[3])
 
 
 if __name__ == "__main__":
