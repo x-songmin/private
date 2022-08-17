@@ -4,7 +4,7 @@ import time
 import re
 import logging
 import random
-from wxpush import WxPush
+from xsm_wxpush import WxPush
 '''
 cron:  20 7 * * *
 new Env('xsm_易班打卡');
