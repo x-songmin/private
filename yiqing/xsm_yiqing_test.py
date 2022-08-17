@@ -1,5 +1,5 @@
 import requests,time,re,logging,random
-from wxpush import WxPush
+from xsm_wxpush import WxPush
 #? 有时间改用环境变量
 '''
 cron:  30 7 * * *
