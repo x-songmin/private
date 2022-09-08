@@ -76,6 +76,7 @@ def main(*args):
     logger.info(message)      #下一行修改Server酱推送  下一行修改Server酱推送   下一行修改Server酱推送
     s.get(f"https://sctapi.ftqq.com/SCT1450TJ4BtzkQZuaGEGzGAhYtFmquM.send?text={message}")# [未测试]Server酱推送，不需要则删除此行
     # s.get(f"https://push.xuthus.cc/send/04d949bd3fcbca88?c={message}")   #修改qqt通知   修改qqt通知   修改qqt通知
+    s.get(f'https://sc.ftqq.com/SCU109954T1eec53fd29a2455979eb5183afe09ba35f3cc08d82b94.send?text={message}')
 
 if __name__ == '__main__':
     main()
