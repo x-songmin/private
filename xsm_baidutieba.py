@@ -74,7 +74,7 @@ def main(*args):
     failed = "\n失败列表："+'\n'.join(failed_bar) if len(failed_bar) else ''
     message = f'''百度贴吧: 共{l}个吧，其中{succees}个吧签到成功，{len(failed_bar)}个吧签到失败，{already_signed}个吧已经签到。失败列表：{failed}'''
     logger.info(message)      #下一行修改Server酱推送  下一行修改Server酱推送   下一行修改Server酱推送
-    s.get(f"https://sctapi.ftqq.com/SCT1450TJ4BtzkQZuaGEGzGAhYtFmquM.send?text={message}")# [未测试]Server酱推送，不需要则删除此行
+   # s.get(f"https://sctapi.ftqq.com/SCT1450TJ4BtzkQZuaGEGzGAhYtFmquM.send?text={message}")# [未测试]Server酱推送，不需要则删除此行
     # s.get(f"https://push.xuthus.cc/send/04d949bd3fcbca88?c={message}")   #修改qqt通知   修改qqt通知   修改qqt通知
     s.get(f'https://sc.ftqq.com/SCU109954T1eec53fd29a2455979eb5183afe09ba35f3cc08d82b94.send?text={message}')
 
