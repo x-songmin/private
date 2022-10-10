@@ -138,7 +138,7 @@ def b64_to_hex(a):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='天翼云签到脚本')
+    parser = argparse.ArgumentParser(description='天翼云自动签到脚本')
     parser.add_argument('--username', type=str, help='19398184214')
     parser.add_argument('--password', type=str, help='990215')
     args = parser.parse_args()
