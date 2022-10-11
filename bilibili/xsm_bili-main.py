@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import sys
 sys.path.append("My-Actions/function/bilibili/")
-from ./bilibili/bilibiliapi import *
+from bilibili/bilibiliapi import *
 from sendNotify import *
 import os
-
+'''
+cron:  20 23 * * *
+new Env('xsm_bilibili');
+'''
 # # 设置中国时区+8
 # if os.environ['OS_TZ']:
 #     os.environ['TZ'] = 'UTC'+str(-int(os.environ['OS_TZ']))+'CN'
