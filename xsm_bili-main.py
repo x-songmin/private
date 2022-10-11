@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 sys.path.append("My-Actions/function/bilibili/")
-from bilibili/bilibiliapi import *
+from bilibiliapi import *
 # from sendNotify import *
 import os
 '''
