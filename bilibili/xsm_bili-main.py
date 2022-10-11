@@ -5,16 +5,16 @@ from bilibiliapi import *
 from sendNotify import *
 import os
 
-# 设置中国时区+8
-if os.environ['OS_TZ']:
-    os.environ['TZ'] = 'UTC'+str(-int(os.environ['OS_TZ']))+'CN'
-    time.tzset()
-else:
-    os.environ['TZ'] = 'UTC-8CN'
-    time.tzset()
+# # 设置中国时区+8
+# if os.environ['OS_TZ']:
+#     os.environ['TZ'] = 'UTC'+str(-int(os.environ['OS_TZ']))+'CN'
+#     time.tzset()
+# else:
+#     os.environ['TZ'] = 'UTC-8CN'
+#     time.tzset()
 
-sendNotify = sendNotify()
-SEND_KEY = os.environ['SEND_KEY']
+# sendNotify = sendNotify()
+# SEND_KEY = os.environ['SEND_KEY']
 BILI_COOKIE = os.environ['BILI_COOKIE'].replace(" ", "")
 
 class BiliBiliCheckIn(object):
@@ -385,13 +385,13 @@ class BiliBiliCheckIn(object):
                 f"按当前速度升级还需: {update_data}天\n{live_stats}"
             )
             print(msg)
-            if SEND_KEY == '':
-                sendNotify.send(title = u"哔哩哔哩签到",msg = msg)
-            msg_list.append(msg)
-        else:
-            if SEND_KEY == '':
-                sendNotify.send(title = u"哔哩哔哩签到",msg = "cookie已过期，请更新")
-        return msg_list
+#             if SEND_KEY == '':
+#                 sendNotify.send(title = u"哔哩哔哩签到",msg = msg)
+#             msg_list.append(msg)
+#         else:
+#             if SEND_KEY == '':
+#                 sendNotify.send(title = u"哔哩哔哩签到",msg = "cookie已过期，请更新")
+#         return msg_list
 
 
 if __name__ == "__main__":
