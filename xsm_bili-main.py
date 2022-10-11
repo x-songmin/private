@@ -2,7 +2,7 @@
 import sys
 sys.path.append("My-Actions/function/bilibili/")
 from bilibili/bilibiliapi import *
-from sendNotify import *
+# from sendNotify import *
 import os
 '''
 cron:  20 23 * * *
@@ -408,7 +408,7 @@ if __name__ == "__main__":
         b = Bilibili()
         login = b.login(username=os.environ['BILI_USER'], password=os.environ['BILI_PASS'])
         if login == False:
-            sendNotify.send(title = u"哔哩哔哩签到", msg = "登录失败 账号或密码错误，详情前往Github查看")
+#             sendNotify.send(title = u"哔哩哔哩签到", msg = "登录失败 账号或密码错误，详情前往Github查看")
             exit(0)
         _bilibili_cookie_list = b.get_cookies()
     else:
