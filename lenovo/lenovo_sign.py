@@ -10,7 +10,10 @@ from sys import exit
 import requests
 import toml
 from requests.utils import cookiejar_from_dict, dict_from_cookiejar
-
+'''
+cron:  20 6 * * *
+new Env('xsm_联想sign');
+'''
 
 USER_AGENT = [
     "Mozilla/5.0 (Linux; Android 10; ELS-AN00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.92 Mobile Safari/537.36",
