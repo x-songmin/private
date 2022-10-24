@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# by ghtmarigold233/lenovo-sign
 import base64
 import json
 import logging
