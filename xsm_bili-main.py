@@ -4,6 +4,7 @@ sys.path.append("My-Actions/function/bilibili/")
 from bilibiliapi import *
 # from sendNotify import *
 import os
+# https://github.com/zhonghuaifang/My-Actions
 '''
 cron:  20 23 * * *
 new Env('xsm_bilibili');
